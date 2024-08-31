@@ -54,7 +54,9 @@
 
   Objects are not stored in variables, however objects are referenced by variables.
 
-
+  Scanner class
+  used to read input from keyboard
+  must be imported , import java.util.Scanner;
 
 */
 
