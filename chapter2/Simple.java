@@ -67,7 +67,7 @@ public class Simple {
   public static void main(String[] args) {
     //Java statement
     //only Java statements end with ;
-    System.out.printLn("Programming is great fun!");
-    System.out.printLn("We can join a string to " + "a number line this: " + (5 + 3));
+    System.out.println("Programming is great fun!");
+    System.out.println("We can join a string to " + "a number line this: " + (5 + 3));
   }
 }
