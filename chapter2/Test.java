@@ -32,6 +32,8 @@ public class Test{
       System.out.println("no not working");
     }
 
+    System.out.println(yesOrNo.charAt(0));
+
     System.out.println("Enter a integer (1-7) or not.");
     int numberTwo = keyboard.nextInt();
 
