@@ -36,7 +36,7 @@ public class Assignment2 {
 
 
     //Prints the ships coordinates so you can hit it. Uncomment to show in terminal.
-    // System.out.printf("\nThe ship is at the following coordinates.\nrow: %d\ncolumn:%c", randRow, (char)randCol);
+    // System.out.printf("\nThe ship is at the following coordinates.\nrow: %d\ncolumn: %c", randRow, (char)randCol);
 
     
     //Checks user column input through validation
