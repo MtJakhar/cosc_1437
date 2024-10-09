@@ -45,5 +45,41 @@ class ArrayReview {
 
     System.out.println(Arrays.toString(vowels2));
     System.out.println(foundIndex);
+    
+    //fill method
+    Arrays.fill(vowels2, 'x');
+    //takes start and end
+    Arrays.fill(vowels2, start, end, 'x');
+    System.out.println(foundIndex2);
+
+    //copying an int does not create  new array with the same value, it references the memory address
+    int numbers[] = {1,2,3,4,5};
+    int copyOfNumbers[] = numbers;
+    
+    Arrays.fill(numbers, 0);
+    System.out.println(numbers);
+    System.out.println(copyOfNumbers);
+    
+    //in order to create a new array with the same values you must use the follwoing method
+    int copyOfNumbers2[] = Arrays.copyOf(numbers, 5);
+    //note you can change eh length if you wish
+
+    //use copyOfRange if you want to copy certain elements
+    // int copyOfNumbers2[] = Arrays.copyOfRange(numbers, start, end);
+    Arrays.fill(numbers, 0);
+
+    System.out.println(Arrays.toString(numbers));
+    System.out.println(Arrays.toString(copyOfNumbers2));
+
+
+    //like strings the == operator will compare memory address
+    System.out.println(numbers == copyOfNumbers2);
+    //Arrays, like the String class, has an equals() method which takes the two compared arrays.
+    System.out.println(Arrays.equals(numbers, copyOfNumbers2));
+
+    
+
+
+
   }
 }
