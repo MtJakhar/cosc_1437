@@ -18,5 +18,15 @@ class HelloWorld {
 
     char characterHere = 'k';
 
+    //widing conversion
+    int num1 = 5;
+    double num2 = num1;
+    System.out.println(num2);
+
+    //narrowing conversion
+    //can only be done with type casting and explicit conversion
+    double number1 = 5.8;
+    int number2 = (int)number1;
+    System.out.println(number2);
   }
 }
