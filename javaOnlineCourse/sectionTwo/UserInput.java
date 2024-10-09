@@ -11,8 +11,20 @@ class UserInput {
     //this take in next user input line
     String name = scanner.nextLine();
 
-    System.out.printf("Hello %s, How are you?", name);
-    
+    System.out.printf("Hello %s, How hold are you?", name);
+    int age = scanner.nextInt();
+
+    System.out.printf("%d is a good age to start programming, what lang you prefer", age);
+
+    //After a nextInt, nextFloat etc, when followed by nextLine()
+    //you should do the following, it will fix the problem
+    scanner.nextLine();
+
+    String lang = scanner.nextLine();
+    System.out.printf("%s is a great language", lang);
+
+
+
     scanner.close();
 
   }
