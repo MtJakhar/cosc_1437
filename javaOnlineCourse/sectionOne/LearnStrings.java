@@ -23,7 +23,7 @@ class LearnStrings {
 
     String realName = "bob";
     String realPlace = "USA";
-    String realAge = "1 1/2";
+    int realAge = 1;
 
     //formatted strings
     System.out.printf("My name is %s. I am from %s. I am %d years old.",realName, realPlace, realAge);
