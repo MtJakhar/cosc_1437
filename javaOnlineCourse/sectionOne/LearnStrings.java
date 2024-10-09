@@ -51,9 +51,14 @@ class LearnStrings {
     String weirdName2 = "MIKE";
     System.out.println(weirdName.equalsIgnoreCase(weirdName2));
 
-    
+    //replace 
+    String sentence = "this is a sentence";
 
+    System.out.println(sentence.replace("sentence", "smelly toe"));
+    //note that it does not change original string.
+    System.out.println(sentence);
 
-
+    //find if string contains word
+    System.out.println(sentence.contains("this"));
   }
 }
