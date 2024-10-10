@@ -76,10 +76,5 @@ class ArrayReview {
     System.out.println(numbers == copyOfNumbers2);
     //Arrays, like the String class, has an equals() method which takes the two compared arrays.
     System.out.println(Arrays.equals(numbers, copyOfNumbers2));
-
-    
-
-
-
   }
 }
