@@ -1,3 +1,4 @@
+package Assignment;
 // a program which prints game directions to the terminal
 // Muizz Jakhar 
 // September 8 2024

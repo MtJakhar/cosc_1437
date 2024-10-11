@@ -1,3 +1,4 @@
+package Assignment;
 // package chapter4;
 import java.util.Scanner;
 import java.util.Random;
