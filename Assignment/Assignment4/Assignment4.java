@@ -8,32 +8,39 @@ class Assignment4 {
   public static void main(String[] args) {
     //Create a new scanner object to check user input
     Scanner scanner = new Scanner(System.in);
-    Random randomNumber = new Random();
-
+    
     boolean continueGame = true;
 
     while(continueGame) {
-      int randomColumn = randomNumber.nextInt(10) + 1;
-      int randomRow = randomNumber.nextInt(10) + 65;
-  
+
+      Ship[] shipArray = createRandomShips();
+      
+
       int attemptCount = 0;
       String userEndInput;
       char doesUserWantToContinue;
       boolean shipHit = false;
-      int shipArray[][]; 
+      char[][] oceanGrid = new char[10][10];
+
+      for(int row = 0; row < oceanGrid.length; row++){
+        for(int column = 0; column < oceanGrid[column].length; column++) {
+        }
+      }
+
       
       gameIntro();
       gameInstructions();
 
+      // System.out.printf("\nThe ship is at the following coordinates.\ncolumn: %c\nrow: %d", (char)randomColumn, randomRow);
 
-      System.out.printf("\nThe ship is at the following coordinates.\ncolumn: %c\nrow: %d", (char)randomColumn, randomRow);
-
+      //
       while(attemptCount < 10 && shipHit == false) {
         String userInputColumn;
         char userChar;
         int userColumnInt;
         int userInputRow;
 
+        //checks user column input through validation
         do {
           System.out.println("\n\nPlease enter a column. (Columns are A through J)");
           //first turns user input to uppercase then selects char from string, then coverts char to int, to get unicode position.
@@ -53,8 +60,10 @@ class Assignment4 {
           //while user input is not equal to 1-9
         } while(!(userInputRow >= 1 && userInputRow <= 9));
 
+        //increment number of attempts
         attemptCount++;
 
+        //conditional logic for determining whether a ship has been hit or not
         if(randomRow == userInputRow && randomColumn == userColumnInt) {
           System.out.println("\nHIT!!! You have hit the ship");
           shipHit = true;
@@ -77,6 +86,7 @@ class Assignment4 {
     }
   }
 
+  //gameInstructions prints game rules to terminal
   public static void gameInstructions() {
     System.out.println("\nInstructions: You are going to be playing a battleship like game.");
     System.out.println("In this game you will enter a column and a row to determine where you will be shooting.");
@@ -85,6 +95,7 @@ class Assignment4 {
     System.out.println("Once you have made 10 attempts, you will be given a prompt which will give you the choice to start again");
   }
 
+  //gameIntro prints intro to game on to terminal
   public static void gameIntro() {
     System.out.println("------------------------------------------");
     System.out.println("|--------Welcome to the COSC-1437--------|");
@@ -92,4 +103,30 @@ class Assignment4 {
     System.out.println("|----------Naval Combat Game!------------|");
     System.out.println("------------------------------------------");
   }
+  //creates 3 random ships
+  public static Ship[] createRandomShips() {
+    Random randomNumber = new Random();
+    Ship[] shipArray = new Ship[3];
+
+    for(int i = 0; i < shipArray.length; i++) {
+      int randomColumn = randomNumber.nextInt(10) + 65;
+      int randomRow = randomNumber.nextInt(10) + 1;
+      int randomSize = randomNumber.nextInt(3) + 3;
+
+      shipArray[i] = new Ship(randomSize, randomColumn, randomRow);
+    }
+    return shipArray;
+  }
+
+  public static void printShipsArrayData(Ship[] shipArray) {
+    int count = 1;
+    for(Ship ship : shipArray) {
+      System.out.printf("Ship %d - size %d, column %c, row %d\n", count, ship.getSize(), (char)ship.getPlacement()[0], ship.getPlacement()[1]);
+      count++;
+    }
+  }
 }
+
+
+
+

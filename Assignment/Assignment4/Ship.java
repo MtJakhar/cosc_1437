@@ -16,6 +16,7 @@ public class Ship {
   public int[] getPlacement() {
     return placement;
   }
+  
   public boolean getShipSunk() {
     return shipSunk;
   }
