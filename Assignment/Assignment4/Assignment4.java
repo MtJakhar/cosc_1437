@@ -11,29 +11,30 @@ class Assignment4 {
     
     boolean continueGame = true;
 
-    while(continueGame) {
-
-      Ship[] shipArray = createRandomShips();
+    char[][] oceanGrid = new char[10][10];
       
-
+    for(int row = 0; row < oceanGrid.length; row++){
+      for(int column = 0; column < oceanGrid[row].length; column++) {
+        oceanGrid[row][column] = '~';
+        System.out.print(" " + oceanGrid[row][column]+ " ");
+      }
+      System.out.print("\n");
+    }
+    while(continueGame) {  
       int attemptCount = 0;
       String userEndInput;
       char doesUserWantToContinue;
       boolean shipHit = false;
-      char[][] oceanGrid = new char[10][10];
+      // char[][] oceanGrid = new char[10][10];
+      
 
-      for(int row = 0; row < oceanGrid.length; row++){
-        for(int column = 0; column < oceanGrid[column].length; column++) {
-        }
-      }
-
+      Ship[] shipArray = createRandomShipsOnGrid();
       
       gameIntro();
       gameInstructions();
 
       // System.out.printf("\nThe ship is at the following coordinates.\ncolumn: %c\nrow: %d", (char)randomColumn, randomRow);
 
-      //
       while(attemptCount < 10 && shipHit == false) {
         String userInputColumn;
         char userChar;
@@ -104,19 +105,56 @@ class Assignment4 {
     System.out.println("------------------------------------------");
   }
   //creates 3 random ships
-  public static Ship[] createRandomShips() {
+  public static Ship[] createRandomShipsOnGrid(char[][] grid) {
     Random randomNumber = new Random();
     Ship[] shipArray = new Ship[3];
+    int shipCount = 0;
 
-    for(int i = 0; i < shipArray.length; i++) {
+    while(shipCount < shipArray.length) {
+      boolean isHorizontal = randomNumber.nextInt(2) == 1;
       int randomColumn = randomNumber.nextInt(10) + 65;
       int randomRow = randomNumber.nextInt(10) + 1;
       int randomSize = randomNumber.nextInt(3) + 3;
-
-      shipArray[i] = new Ship(randomSize, randomColumn, randomRow);
+      
+      if(shipPlaceable(grid, randomRow, randomColumn, randomSize, isHorizontal)) {
+        shipArray[shipCount] = new Ship(randomSize, randomColumn, randomRow, isHorizontal);
+        shipCount++;
+        for(int i = 0; i < randomSize; i++) {
+          if(isHorizontal) {
+            grid[randomRow][randomColumn +i] = 'S';
+          } else {
+            grid[randomRow + i][randomColumn] = 'S';
+          }
+        }
+      }
     }
     return shipArray;
   }
+
+  public static boolean shipPlaceable(char[][] grid, int row, int column, int size, boolean isHorizontal) {
+    int columnMax = grid[0].length;
+    int rowMax = grid.length;
+    if(isHorizontal) {
+      if(column + size > columnMax){
+        return false;
+      }
+      for(int i = 0; i < size; i++){
+        if(grid[row][column + i] != '~') {
+          return false;
+        }
+      }
+    } else {
+      if(row + size > rowMax){
+        return false;
+      }
+      for(int i = 0; i < size; i++) {
+        if(grid[row + i][column] != '~') {
+          return false;
+        }
+      }
+    }
+    return true;
+  } 
 
   public static void printShipsArrayData(Ship[] shipArray) {
     int count = 1;

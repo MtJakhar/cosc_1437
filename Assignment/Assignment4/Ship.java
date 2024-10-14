@@ -2,9 +2,11 @@ public class Ship {
   private int size;
   private int placement[] = new int[2];
   private boolean shipSunk = false;
+  private boolean isHorizontal;
 
-  Ship(int size, int column, int row) {
+  Ship(int size, int column, int row, boolean isHorizontal) {
     this.size = size;
+    this.isHorizontal = isHorizontal;
     placement[0] = column;
     placement[1] = row;
   }
