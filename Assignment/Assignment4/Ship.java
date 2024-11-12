@@ -1,3 +1,11 @@
+
+/**
+ * Ship class which is a part of assignment 4,
+ * October 11 2024
+ * Muizz Jakhar 
+ * cosc-1437.006
+ */
+
 import java.util.ArrayList;
 
 public class Ship {
@@ -14,11 +22,11 @@ public class Ship {
     placement[1] = row;
     shipPositions = new ArrayList<int[]>();
 
-    for(int i = 0; i < size; i++) {
-      if(isHorizontal) {
-        shipPositions.add(new int[] {placement[0] + i, placement[1]});
+    for (int i = 0; i < size; i++) {
+      if (isHorizontal) {
+        shipPositions.add(new int[] { placement[0] + i, placement[1] });
       } else {
-        shipPositions.add(new int[] {placement[0], placement[1] + i});
+        shipPositions.add(new int[] { placement[0], placement[1] + i });
       }
     }
   }
@@ -30,13 +38,13 @@ public class Ship {
   public int[] getPlacement() {
     return placement;
   }
-  
+
   public boolean getShipSunk() {
     return shipSunk;
   }
 
-  public void  getOrientation() {
-    if(isHorizontal) {
+  public void getOrientation() {
+    if (isHorizontal) {
       System.out.println("ship is oriented horizontally.");
     } else {
       System.out.println("ship is oriented vertically.");
