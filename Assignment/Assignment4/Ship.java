@@ -1,5 +1,4 @@
-
-/**
+/*
  * Ship class which is a part of assignment 4,
  * October 11 2024
  * Muizz Jakhar 

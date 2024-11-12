@@ -1,7 +1,7 @@
 
 //allows user to play a battleship like game, which allows user to make 10 attempts at shooting a ship (which was generated at a random location), and ask them if they would like to restart the game at the end.
 // Muizz Jakhar 
-// October 11 2024
+// November 11 2024
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -21,7 +21,7 @@ class Assignment5 {
 
       createOceanGrid(oceanGrid);
 
-      Ship[] shipArray = createRandomShipsOnGrid(oceanGrid);
+      Ship[] shipArray = createShipsOnGrid(oceanGrid);
 
       gameIntro();
       gameInstructions();
@@ -29,7 +29,7 @@ class Assignment5 {
       printOceanGrid(oceanGrid);
       printShipsArrayData(shipArray);
 
-      while (attemptCount < 10 && countOfSunkShips(shipArray) < 3) {
+      while (attemptCount < 10 && countOfSunkShips(shipArray) < 5) {
         String userInputColumn;
         char userChar;
         int userColumnCharInt;
@@ -45,9 +45,6 @@ class Assignment5 {
           userInputColumn = scanner.nextLine().toUpperCase();
           userChar = userInputColumn.charAt(0);
           userColumnCharInt = (int) userChar;
-
-          // while user input is not equal to a number between 65-74, which are the
-          // unicode for A-J
         } while (!(userColumnCharInt >= 65 && userColumnCharInt <= 74));
 
         // Checks user row input through validation
@@ -73,7 +70,6 @@ class Assignment5 {
 
         for (int i = 0; i < shipArray.length; i++) {
           boolean hit = false;
-
           ArrayList<int[]> shipCoordinates = shipArray[i].getShipPositions();
 
           for (int index = 0; index < shipCoordinates.size(); index++) {
@@ -135,30 +131,58 @@ class Assignment5 {
     System.out.println("------------------------------------------");
   }
 
-  // creates 3 random ships
-  public static Ship[] createRandomShipsOnGrid(char[][] grid) {
+  // Creates 5 specific ships on the grid
+  public static Ship[] createShipsOnGrid(char[][] grid) {
     Random randomNumber = new Random();
-    Ship[] shipArray = new Ship[3];
-    int shipCount = 0;
+    Ship[] shipArray = new Ship[5]; // Array for 5 specific types of ships
 
-    while (shipCount < shipArray.length) {
-      boolean isHorizontal = randomNumber.nextInt(2) == 1;
-      int randomColumn = randomNumber.nextInt(10);
-      int randomRow = randomNumber.nextInt(9);
-      int randomSize = randomNumber.nextInt(3) + 3;
+    // Instantiate each ship with random position and orientation
+    for (int i = 0; i < shipArray.length; i++) {
+      boolean placed = false;
+      while (!placed) {
+        boolean isHorizontal = randomNumber.nextBoolean();
+        int randomColumn = randomNumber.nextInt(10);
+        int randomRow = randomNumber.nextInt(9);
 
-      if (shipPlaceable(grid, randomRow, randomColumn, randomSize, isHorizontal)) {
-        shipArray[shipCount] = new Ship(randomSize, randomColumn, randomRow, isHorizontal);
-        shipCount++;
-        for (int i = 0; i < randomSize; i++) {
-          if (isHorizontal) {
-            grid[randomRow][randomColumn + i] = 'S';
-          } else {
-            grid[randomRow + i][randomColumn] = 'S';
+        Ship ship;
+        switch (i) {
+          case 0:
+            ship = new AircraftCarrier(randomColumn, randomRow, isHorizontal);
+            break;
+          case 1:
+            ship = new Battleship(randomColumn, randomRow, isHorizontal);
+            break;
+          case 2:
+            ship = new Cruiser(randomColumn, randomRow, isHorizontal);
+            break;
+          case 3:
+            ship = new Submarine(randomColumn, randomRow, isHorizontal);
+            break;
+          case 4:
+            ship = new Destroyer(randomColumn, randomRow, isHorizontal);
+            break;
+          default:
+            ship = null;
+        }
+
+        if (ship != null
+            && shipPlaceable(grid, ship.getPlacement()[1], ship.getPlacement()[0], ship.getSize(), isHorizontal)) {
+          // Assign this ship to the ship array
+          shipArray[i] = ship;
+
+          // Mark the grid with the ship's occupied positions
+          for (int j = 0; j < ship.getSize(); j++) {
+            if (isHorizontal) {
+              grid[randomRow][randomColumn + j] = 'S';
+            } else {
+              grid[randomRow + j][randomColumn] = 'S';
+            }
           }
+          placed = true;
         }
       }
     }
+
     return shipArray;
   }
 
