@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-class Assignment4 {
+class Assignment5 {
   public static void main(String[] args) {
     // Create a new scanner object to check user input
     Scanner scanner = new Scanner(System.in);
