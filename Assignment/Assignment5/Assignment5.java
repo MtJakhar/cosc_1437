@@ -131,12 +131,10 @@ class Assignment5 {
     System.out.println("------------------------------------------");
   }
 
-  // Creates 5 specific ships on the grid
   public static Ship[] createShipsOnGrid(char[][] grid) {
     Random randomNumber = new Random();
-    Ship[] shipArray = new Ship[5]; // Array for 5 specific types of ships
+    Ship[] shipArray = new Ship[5];
 
-    // Instantiate each ship with random position and orientation
     for (int i = 0; i < shipArray.length; i++) {
       boolean placed = false;
       while (!placed) {
@@ -144,34 +142,34 @@ class Assignment5 {
         int randomColumn = randomNumber.nextInt(10);
         int randomRow = randomNumber.nextInt(9);
 
-        Ship ship;
+        Ship navelVessel;
         switch (i) {
           case 0:
-            ship = new AircraftCarrier(randomColumn, randomRow, isHorizontal);
+            navelVessel = new AircraftCarrier(randomColumn, randomRow, isHorizontal);
             break;
           case 1:
-            ship = new Battleship(randomColumn, randomRow, isHorizontal);
+            navelVessel = new Battleship(randomColumn, randomRow, isHorizontal);
             break;
           case 2:
-            ship = new Cruiser(randomColumn, randomRow, isHorizontal);
+            navelVessel = new Cruiser(randomColumn, randomRow, isHorizontal);
             break;
           case 3:
-            ship = new Submarine(randomColumn, randomRow, isHorizontal);
+            navelVessel = new Submarine(randomColumn, randomRow, isHorizontal);
             break;
           case 4:
-            ship = new Destroyer(randomColumn, randomRow, isHorizontal);
+            navelVessel = new Destroyer(randomColumn, randomRow, isHorizontal);
             break;
           default:
-            ship = null;
+            navelVessel = null;
         }
 
-        if (ship != null
-            && shipPlaceable(grid, ship.getPlacement()[1], ship.getPlacement()[0], ship.getSize(), isHorizontal)) {
-          // Assign this ship to the ship array
-          shipArray[i] = ship;
+        if (navelVessel != null
+            && shipPlaceable(grid, navelVessel.getPlacement()[1], navelVessel.getPlacement()[0], navelVessel.getSize(),
+                isHorizontal)) {
 
-          // Mark the grid with the ship's occupied positions
-          for (int j = 0; j < ship.getSize(); j++) {
+          shipArray[i] = navelVessel;
+
+          for (int j = 0; j < navelVessel.getSize(); j++) {
             if (isHorizontal) {
               grid[randomRow][randomColumn + j] = 'S';
             } else {

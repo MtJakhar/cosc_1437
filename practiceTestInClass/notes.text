@@ -1,0 +1,9 @@
+1. Create a interface name shape
+  -one method draw
+  -draw has two integer parameters x and y
+
+2. Create 3 classes that implement Shape: Triangle, Rectangle, and Circle
+
+3. create a custom Exception, offScreenException, outputs : you"You tried to draw me offscreen!" when thrown
+
+4. Throw this exception anytime the draw method is called with a negative value
