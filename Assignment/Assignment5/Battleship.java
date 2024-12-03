@@ -1,7 +1,7 @@
 
 /**
  * battleShip subclass which is a part of assignment 5,
- * November 11 2024
+ * December 2 2024
  * Muizz Jakhar
  * cosc-1437.006
  */
