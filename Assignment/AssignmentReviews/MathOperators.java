@@ -17,9 +17,17 @@ public class MathOperators {
     double result = Math.pow(two, three);
     System.out.println(result);
 
+    // use of cast operator to change dataType of variable
+    int one = 1;
+    System.out.println(one + (int) three);
+
     double nine = 9.0;
     double squarerootOfnine = Math.sqrt(nine);
     System.out.println(squarerootOfnine);
+
+    final int numberConstant = 5;
+    // final cannot be changed
+    numberConstant += 1;
 
   }
 }
