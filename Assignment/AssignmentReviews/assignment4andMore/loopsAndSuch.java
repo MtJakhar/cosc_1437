@@ -16,6 +16,7 @@ public class loopsAndSuch {
     System.out.println("Now, number is " + num);
   }
 
+  // while loop is a pretest loop
   public void WhileLoop() {
     int number = 1;
     while (number <= 5) {
