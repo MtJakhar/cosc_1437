@@ -14,6 +14,7 @@ public class Polymorphism {
     Character goblinTwo = new Character();
     Character OrcOne = new Character();
     Player Hero = new Player(200, 18, 14, 16, 10, 10, 12, "human", "Esfandiyar", 22, "fighter");
+    Goblin orf = new Goblin(200, 14, 14, 16, 10, 12, 16, 10);
 
     // this array list is also an example of polymorhpism as even though it is a
     // Character based array, it can still reference the character subclasses like
@@ -25,6 +26,7 @@ public class Polymorphism {
     turnOrder.add(goblinTwo);
     turnOrder.add(Hero);
     turnOrder.add(OrcOne);
+    turnOrder.add(orf);
 
     // When executing the attack method the Java VM is using dynamic binding to
     // determine whether it must use the superclass's attack method or the
@@ -32,6 +34,9 @@ public class Polymorphism {
     for (Character entity : turnOrder) {
       entity.Attack();
     }
+
+    orf.callReinforcements();
+    orf.doEvil();
 
     // you can use the instanceof operator to determine whether an object is an
     // instance of a particular class.

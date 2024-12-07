@@ -42,10 +42,6 @@ public class Character {
     this.charisma = charisma;
   }
 
-  public static void main() {
-
-  }
-
   // setters
   public void setHealth(int health) {
     this.health = health;
@@ -112,11 +108,11 @@ public class Character {
   // abstract method -a method that appears in a superclass that is to be
   // overidden. Also can be created in abstract classes, which are classes which
   // cannot be created but provided a blue print for subclasses
-  public abstract void sayHello();
+  // public abstract void sayHello();
 
   // final method- cannot be overriden
-  public final void message() {
-
-  }
+  // public final void message() {
+  // System.out.println("A message has been sent");
+  // }
 
 }
