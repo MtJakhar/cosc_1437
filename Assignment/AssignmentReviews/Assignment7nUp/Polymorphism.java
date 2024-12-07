@@ -21,12 +21,22 @@ public class Polymorphism {
     // player.
     ArrayList<Character> turnOrder = new ArrayList<Character>();
 
+    // Anonymous inner class , a nameless class is defined inside another class and
+    // is only used once. the mysteryCharacter is an Example of and Anonymous class
+    Character mysteryCharacter = new Character() {
+      @Override
+      public void Attack() {
+        System.out.println("Mystery Character attacks with gusto!!!");
+      }
+    };
+
     turnOrder.add(goblinOne);
     turnOrder.add(newEntity);
     turnOrder.add(goblinTwo);
     turnOrder.add(Hero);
     turnOrder.add(OrcOne);
     turnOrder.add(orf);
+    turnOrder.add(mysteryCharacter);
 
     // When executing the attack method the Java VM is using dynamic binding to
     // determine whether it must use the superclass's attack method or the
@@ -37,6 +47,12 @@ public class Polymorphism {
 
     orf.callReinforcements();
     orf.doEvil();
+
+    functionalInterface lambda = () -> {
+      System.out.println("A natural disaster has occurred!");
+    };
+
+    lambda.actOfGod();
 
     // you can use the instanceof operator to determine whether an object is an
     // instance of a particular class.
