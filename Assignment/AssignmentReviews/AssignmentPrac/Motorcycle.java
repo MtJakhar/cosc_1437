@@ -4,7 +4,7 @@ public class Motorcycle extends MotorVehicle {
     super();
   }
 
-  public Motorcycle(char gear) {
+  public Motorcycle(char gear) throws CheckGearsException, TwoWheelsException {
     super(gear, 2);
   }
 }

@@ -1,4 +1,3 @@
-package AssignmentReviews.AssignmentPrac;
 
 public class TwoWheelsException extends Exception {
   public TwoWheelsException() {
