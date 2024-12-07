@@ -33,5 +33,15 @@ public class Polymorphism {
       entity.Attack();
     }
 
+    // you can use the instanceof operator to determine whether an object is an
+    // instance of a particular class.
+    if (newEntity instanceof Character) {
+      System.out.println("is instance of character");
+    } else if (newEntity instanceof Player) {
+      System.out.println("is an instance of Player");
+    } else {
+      System.out.println("unknown entity");
+    }
+
   }
 }

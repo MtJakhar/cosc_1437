@@ -6,6 +6,12 @@ package AssignmentReviews.Assignment7nUp;
  * see player  class
  */
 
+//an abstract class can not be created, it serves as a blueprint to other classes, and only abstract classes can have abstract methods.
+
+//public abstract class Character {}
+
+//final class cannot be inherited from
+//public final class Character
 public class Character {
   private int health;
   private int strength;
@@ -102,4 +108,15 @@ public class Character {
   public void Attack() {
     System.out.println("A NPC Attacks!");
   }
+
+  // abstract method -a method that appears in a superclass that is to be
+  // overidden. Also can be created in abstract classes, which are classes which
+  // cannot be created but provided a blue print for subclasses
+  public abstract void sayHello();
+
+  // final method- cannot be overriden
+  public final void message() {
+
+  }
+
 }
