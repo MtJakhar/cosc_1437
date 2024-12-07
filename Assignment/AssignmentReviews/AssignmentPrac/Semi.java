@@ -1,4 +1,3 @@
-package AssignmentReviews.AssignmentPrac;
 
 public class Semi extends MotorVehicle {
   public Semi() {

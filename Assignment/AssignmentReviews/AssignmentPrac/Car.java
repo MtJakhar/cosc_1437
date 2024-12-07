@@ -1,4 +1,3 @@
-package AssignmentReviews.AssignmentPrac;
 
 public class Car extends MotorVehicle {
   public Car() {
