@@ -1,0 +1,5 @@
+1. Create a MotorVehicle class that has a gear member variable and a wheels member variable.
+2. Create 3 subclasses(Motorcycle, car, and semi)
+2.5/ create methods for drive reverse that just say "Going forward" and Going backward"
+3. Create an exception that is thrown anytime the wheels member variable is attempted to be set to less than 2
+4.Create an exception that is thrown anytime the gear variable is set to something other than P,R, D, N, 1 or 2
