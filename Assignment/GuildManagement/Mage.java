@@ -1,6 +1,6 @@
 package GuildManagement;
 
-public class Mage extends Adventurer {
+public class Mage extends Adventurer implements QuestReady {
   public Mage(String name, int level) throws InvalidLevelException {
     super(name, level, "Mage");
   }
