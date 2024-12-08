@@ -10,12 +10,7 @@ public class MotorVehicle {
 
   public MotorVehicle(char gear, int wheels) throws CheckGearsException, TwoWheelsException {
     switch (gear) {
-      case 'P':
-      case 'D':
-      case 'N':
-      case 'R':
-      case '1':
-      case '2':
+      case 'P', 'D', 'N', 'R', '1', '2':
         setGear(gear);
         break;
       default:
