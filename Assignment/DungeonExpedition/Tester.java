@@ -1,7 +1,5 @@
 package DungeonExpedition;
 
-import GuildManagement.Mage;
-
 public class Tester {
   public static void main(String[] args) {
     Dungeon shadowFortress = new Dungeon("Shadow Fortress");
